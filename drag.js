@@ -1,31 +1,28 @@
 
+	
+function drag(id) {
 
+	var obj = document.getElementById(id);
+	var disX = 0;
+	var disY = 0;
 
-$(function(){
+	obj.onmousedown = function(ev){
 
-	$('div').css({width:'100px',height:'100px',background:'red'})
+		disX = ev.pageX - obj.offsetLeft;
+		disY = ev.pageY - obj.offsetTop;
 
-	$('#box').click(function(){
-		$(this).css({background:'lightblue'});
-	})
+		document.onmousemove = function(ev){
+			
+			obj.style.left = ev.pageX - disX + 'px';
+			obj.style.top = ev.pageY - disY + 'px';
+		};
 
-	function drag(id) {
+		document.onmouseup = function(){
 
-		var obj = document.getElementById(id);
-		var disX = 0;
-		var disY = 0;
-
-		obj.onmousedown = function(){
-
-			disX = ev.pageX - obj.offsetLeft;
-			disY = ev.pageY - obj.offsetTop;
-
-			document.onmousemove = function(ev){
-				
-				obj.style.left = ev.pageX - disX + 'px';
-				obj.style.top = ev.pageY - disY + 'px';
-			}
-		}
+			document.onmousemove = null;
+			document.onmouseup = null;
+		};
 	}
 
-})
+	return false;
+}

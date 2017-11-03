@@ -7,21 +7,33 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <link href="" rel="stylesheet">
-<script src="./jquery.mb.js"></script>
 <script src="./drag.js"></script>
 <style>
-	#box{
+	#div1{
 		border: 5px solid black;
 		border-radius: 100%;
 		font-size: 50px;
 		line-height: 100px;
 		text-align: center;
-		margin: 200px auto;
-		text-shadow:;
+		width: 100px;
+		height: 100px;
+		background: red;
+		position: absolute;
+		-moz-user-select: none;
+		-khtml-user-select: none;
+		user-select: none;
+	}
+	#div1:hover{
+		cursor: pointer;
 	}
 </style>
 </head>
 <body>
-    <div id="box"></div>
+    <div id="div1">拖</div>
+    <script>
+
+    	drag('div1');
+
+    </script>
 </body>
 </html>
